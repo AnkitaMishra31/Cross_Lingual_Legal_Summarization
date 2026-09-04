@@ -86,6 +86,7 @@ Hindi Summary
 | Generated Summaries | generated_summaries.csv |
 | Automatic Evaluation | automatic_eval_per_case.csv |
 | Manual Evaluation | manual_evaluation.csv |
+| Manual Evaluation Per Case| manual_evaluation_per_case.csv |
 | Error Analysis | error_analysis.csv |
 | Metric vs Manual Comparison | metric_vs_manual_comparison.xlsx |
 | Final Presentation | Cross_Lingual_Legal_Summarization_Final.pptx |
