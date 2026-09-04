@@ -113,18 +113,20 @@ The experiment produced different rankings depending on the evaluation method.
 Structured CoT obtained the highest mean manual score, but the difference from Zero-shot was only 0.06 points.
  
 ### Generation Failure (Limitation)
- 
+
 Few-shot generation was attempted for all 10 MILDSum cases.
- 
+
 However, the Few-shot output for Sample_5 was invalid/empty and was therefore treated as a generation failure.
- 
+
 Consequently:
- 
-- Few-shot generation was attempted for 10 cases.
-- 9 valid Few-shot outputs were available for manual evaluation.
-- Sample_5 was marked as N/A rather than assigning an artificial quality score.
-- The failed output was not counted as a hallucination, omission, or other content error.
-Therefore, Few-shot manual/error-analysis results use n = 9, while Zero-shot and Structured CoT use n = 10.
+
+Few-shot generation was attempted for 10 cases.
+9 valid Few-shot outputs were available for evaluation.
+Sample_5 was marked as N/A rather than assigning an artificial quality score.
+The failed output was not counted as a hallucination, omission, or other content error.
+Few-shot manual and error-analysis results therefore use n = 9.
+
+The experiment used a maximum input length of 3,000 tokens for the complete Few-shot prompt. Prompt truncation is therefore a possible contributing factor to generation instability, but the available experiment logs do not establish that truncation was the direct cause of the Sample_5 failure.
  
 ### Main Finding
  
