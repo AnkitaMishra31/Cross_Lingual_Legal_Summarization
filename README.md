@@ -18,6 +18,59 @@ The experiment evaluates the generated summaries using both:
 
 The experiment uses **10 MILDSum samples** and is intended as a small exploratory evaluation rather than a statistically generalizable benchmark.
 
+## Quick Access
+
+| Deliverable | File |
+|---|---|
+| Experimental Notebook | `Cross_Lingual.ipynb` |
+| Generated Summaries | `generated_summaries.csv` |
+| Automatic Evaluation | `automatic_eval_per_case.csv` |
+| Manual Evaluation | `manual_evaluation.csv` |
+| Error Analysis | `error_analysis.csv` |
+| Metric vs Manual Comparison | `metric_vs_manual_comparison.xlsx` |
+| Final Presentation | `Cross_Lingual_Legal_Summarization_Final.pptx` |
+
+## Key Results
+
+The experiment produced different rankings depending on the evaluation method.
+
+### Automatic Evaluation
+
+- **Few-shot** achieved the highest ROUGE-1, ROUGE-2, and ROUGE-L scores.
+- **Zero-shot** achieved the highest BERTScore-F1.
+- Therefore, ROUGE and BERTScore did not identify the same best-performing method.
+
+### Manual Evaluation
+
+| Method | Overall Manual Score |
+|---|---:|
+| Structured CoT | **2.24 / 5** |
+| Zero-shot | **2.18 / 5** |
+| Few-shot | **1.98 / 5** |
+
+Structured CoT obtained the highest mean manual score, but the difference from Zero-shot was only 0.06 points.
+
+### Main Finding
+
+The experiment does not show a universal winner among the three prompting strategies. More importantly, case-level analysis revealed factual, legal, terminology, and omission errors that were not fully captured by automatic similarity metrics.
+
+Therefore, automatic metrics should be treated as complementary evidence rather than as the sole measure of legal summarization quality.
+
+## Generation Failure
+
+Few-shot generation was attempted for all 10 MILDSum cases.
+
+However, the Few-shot output for `Sample_5` was invalid/empty and was therefore treated as a generation failure.
+
+Consequently:
+
+- Few-shot generation was attempted for 10 cases.
+- 9 valid Few-shot outputs were available for manual evaluation.
+- Sample_5 was marked as N/A rather than assigning an artificial quality score.
+- The failed output was not counted as a hallucination, omission, or other content error.
+
+Therefore, Few-shot manual/error-analysis results use `n = 9`, while Zero-shot and Structured CoT use `n = 10`.
+
 ---
 
 ## Research Question
