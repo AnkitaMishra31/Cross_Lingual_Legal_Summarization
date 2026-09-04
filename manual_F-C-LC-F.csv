@@ -1,0 +1,4 @@
+"Method","Factuality","Coverage","Legal Correctness","Faithfulness","Hindi Quality","Overall"
+"Zero-shot (n=10)","2.3","2.2","1.8","2.2","2.5","2.18"
+"Few-shot (n=9)","1.9","2.3","1.6","2.1","2.1","1.98"
+"Structured CoT (n=10)","2.4","2.5","1.6","2.4","2.3","2.24"

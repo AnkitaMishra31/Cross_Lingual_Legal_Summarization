@@ -1,0 +1,7 @@
+"Error Type","Zero-shot (/10)","Few-shot (/9)","Structured CoT (/10)"
+"Hallucination","6","6","3"
+"Important omission","7","9","10"
+"Wrong fact","9","8","7"
+"Wrong legal conclusion","7","3","5"
+"Translation/language error","9","9","10"
+"Incorrect legal terminology","10","9","10"
