@@ -88,7 +88,7 @@ Hindi Summary
 | Manual Evaluation | manual_evaluation.csv |
 | Manual Evaluation Per Case| manual_evaluation_per_case.csv |
 | Error Analysis | error_analysis.csv |
-| Metric vs Manual Comparison | metric_vs_manual_comparison.xlsx |
+| Metric vs Manual Comparison | metric_vs_manual_comparison.csv |
 | Final Presentation | Cross_Lingual_Legal_Summarization_Final.pptx |
  
 ---
