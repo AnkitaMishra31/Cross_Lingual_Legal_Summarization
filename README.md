@@ -1,53 +1,81 @@
-# Cross-Lingual Legal Summarization: English → Hindi
+# Cross-Lingual Legal Summarization: Evaluating Zero-Shot, Few-Shot, and Structured CoT Prompting
 
-## Evaluating Zero-Shot, Few-Shot and Structured Chain-of-Thought Prompting on MILDSum
+## Overview
 
-This repository contains the code, generated summaries, evaluation results, and presentation for an exploratory study of **English-to-Hindi legal summarization** using the **MILDSum** dataset.
+This project investigates **English-to-Hindi legal summarization** using the **MILDSum** dataset. The main objective is to evaluate how different prompting strategies affect the quality of Hindi legal summaries generated from English court judgments.
 
-The study compares three prompting strategies:
+Three prompting strategies are compared using the same instruction-tuned language model:
 
-1. **Zero-Shot Prompting**
-2. **Few-Shot Prompting**
-3. **Structured Chain-of-Thought (CoT) Prompting**
+1. **Zero-shot prompting**
+2. **Few-shot prompting**
+3. **Structured Chain-of-Thought (CoT) prompting**
 
-The main objective is not simply to determine which method obtains the highest automatic metric score, but to understand:
+The experiment evaluates the generated summaries using both:
+
+- **Automatic metrics:** ROUGE-1, ROUGE-2, ROUGE-L, and BERTScore-F1
+- **Manual evaluation:** Factuality, Coverage, Legal Correctness, Faithfulness, and Hindi Quality
+- **Error analysis:** Hallucination, important omissions, wrong facts, wrong legal conclusions, translation/language errors, and incorrect legal terminology
+
+The experiment uses **10 MILDSum samples** and is intended as a small exploratory evaluation rather than a statistically generalizable benchmark.
+
+---
+
+## Research Question
 
 > **What did we learn about English-to-Hindi legal summarization from this experiment, and what evidence supports the conclusion?**
 
----
+More specifically:
 
-## 1. Research Objective
-
-Legal summarization is a high-stakes generation task where a summary may appear fluent and semantically relevant while still containing a legally consequential error.
-
-For example, changing:
-
-- a court or government entity,
-- a monetary amount,
-- a quantity,
-- a legal provision,
-- the court's reasoning, or
-- the final legal decision
-
-can substantially change the meaning of a case.
-
-Therefore, this study evaluates both:
-
-- **Automatic similarity metrics**, and
-- **Human/manual legal-quality assessment**.
-
-The experiment investigates whether the prompting strategy that performs well according to ROUGE/BERTScore also produces better summaries when evaluated for factuality, legal correctness, faithfulness, coverage, and Hindi quality.
+- Does few-shot prompting improve legal summarization compared with zero-shot prompting?
+- Does structured reasoning improve factual and legal reliability?
+- Do automatic metrics such as ROUGE and BERTScore agree with manual legal evaluation?
+- What types of errors occur across the three prompting strategies?
+- Can a summary obtain a good automatic score while still containing a legally important error?
 
 ---
 
-# 2. Dataset
+## Objectives
 
-The experiment uses the **MILDSum** dataset.
+The main objectives of this project are:
 
-Dataset:
-[Law-AI/MILDSum](https://github.com/Law-AI/MILDSum)
+- To generate Hindi summaries of English legal judgments.
+- To compare zero-shot, few-shot, and structured CoT prompting.
+- To evaluate summaries using standard automatic summarization metrics.
+- To perform manual evaluation specifically considering legal-domain requirements.
+- To identify common factual, legal, linguistic, and terminology-related errors.
+- To investigate disagreements between automatic metrics and human/manual evaluation.
+- To analyze representative cases in detail.
+- To understand why automatic similarity metrics alone may not be sufficient for legal summarization.
 
-The assignment specifies the 10 samples available in:
+---
+
+# Dataset
+
+## MILDSum
+
+The experiment uses the **MILDSum** dataset for multilingual legal document summarization.
+
+Official repository:
+
+https://github.com/Law-AI/MILDSum
+
+For this assignment, the following directory was used:
+
+https://github.com/Law-AI/MILDSum/tree/main/Data/MILDSum_Samples
+
+Each sample contains:
+
+- `EN_Judgment.txt` — English legal judgment
+- `EN_Summary.txt` — English reference summary
+- `HI_Summary.txt` — Hindi reference summary
+
+### Experimental Input and Reference
+
+For every case:
 
 ```text
-MILDSum/Data/MILDSum_Samples
+Input:
+English Judgment
+
+Reference:
+Hindi Summary
